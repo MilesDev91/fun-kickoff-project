@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   accAside: {
     fontSize: 14,
-    color: '#b0b0b0',
     fontWeight: 400,
     textAlign: 'center',
     whiteSpace: 'nowrap',

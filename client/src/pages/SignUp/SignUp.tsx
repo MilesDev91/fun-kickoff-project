@@ -44,13 +44,13 @@ export default function Register(): JSX.Element {
             <Grid container>
               <Grid item xs>
                 <Typography className={classes.welcome} component="h1" variant="h5">
-                  Create an account
+                  <strong>Sign up</strong>
                 </Typography>
               </Grid>
             </Grid>
             <SignUpForm handleSubmit={handleSubmit} />
           </Box>
-          <AuthHeader linkTo="/login" asideText="Already have an account?" linkText="Login" />
+          <AuthHeader linkTo="/login" asideText="Already a member?" linkText="Login" />
         </Box>
       </Grid>
     </Grid>

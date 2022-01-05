@@ -7,9 +7,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(1),
   },
   label: {
-    fontSize: 19,
-    color: 'rgb(0,0,0,0.4)',
-    paddingLeft: '5px',
+    fontSize: '.8rem',
+    color: 'rgb(0,0,0)',
   },
   inputs: {
     marginTop: '1rem',
@@ -27,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 56,
     borderRadius: theme.shape.borderRadius,
     fontSize: 16,
-    backgroundColor: '#3a8dff',
+    backgroundColor: theme.palette.primary.main,
     fontWeight: 'bold',
   },
 }));

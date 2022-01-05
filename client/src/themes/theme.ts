@@ -16,4 +16,13 @@ export const theme = createTheme({
     borderRadius: 5,
   },
   spacing: 6,
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#f14140',
+        },
+      },
+    },
+  },
 });

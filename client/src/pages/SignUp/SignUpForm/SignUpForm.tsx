@@ -52,8 +52,8 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
           <TextField
-            id="username"
-            label={<Typography className={classes.label}>Username</Typography>}
+            id="name"
+            label={<Typography className={classes.label}>NAME</Typography>}
             fullWidth
             margin="normal"
             InputLabelProps={{
@@ -69,10 +69,11 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             error={touched.username && Boolean(errors.username)}
             value={values.username}
             onChange={handleChange}
+            variant="standard"
           />
           <TextField
             id="email"
-            label={<Typography className={classes.label}>E-mail address</Typography>}
+            label={<Typography className={classes.label}>EMAIL ADDRESS</Typography>}
             fullWidth
             margin="normal"
             InputLabelProps={{
@@ -87,10 +88,11 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             error={touched.email && Boolean(errors.email)}
             value={values.email}
             onChange={handleChange}
+            variant="standard"
           />
           <TextField
             id="password"
-            label={<Typography className={classes.label}>Password</Typography>}
+            label={<Typography className={classes.label}>PASSWORD</Typography>}
             fullWidth
             margin="normal"
             InputLabelProps={{
@@ -105,11 +107,12 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             error={touched.password && Boolean(errors.password)}
             value={values.password}
             onChange={handleChange}
+            variant="standard"
           />
 
           <Box textAlign="center" marginTop={5}>
-            <Button type="submit" size="large" variant="contained" color="primary" className={classes.submit}>
-              {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Create'}
+            <Button type="submit" size="large" color="primary" variant="contained" className={classes.submit}>
+              {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Sign up'}
             </Button>
           </Box>
         </form>
