@@ -24,5 +24,23 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          fontWeight: 'bold',
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        underline: {
+          '&::before': {
+            border: '1px solid rgba(0,0,0,0.2)',
+            height: '100%',
+            borderRadius: '.2rem',
+          },
+        },
+      },
+    },
   },
 });
