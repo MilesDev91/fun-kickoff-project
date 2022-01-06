@@ -6,7 +6,7 @@ import { FormikHelpers } from 'formik';
 import useStyles from './useStyles';
 import register from '../../helpers/APICalls/register';
 import SignUpForm from './SignUpForm/SignUpForm';
-import AuthHeader from '../../components/AuthHeader/AuthHeader';
+import AuthFooter from '../../components/AuthFooter/AuthFooter';
 import { useAuth } from '../../context/useAuthContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 
@@ -43,14 +43,14 @@ export default function Register(): JSX.Element {
           <Box width="100%" maxWidth={450} p={3} alignSelf="center">
             <Grid container>
               <Grid item xs>
-                <Typography className={classes.welcome} component="h1" variant="h5">
-                  <strong>Sign up</strong>
+                <Typography classes={{ root: classes.welcome }} component="h1" variant="h5">
+                  Sign up
                 </Typography>
               </Grid>
             </Grid>
             <SignUpForm handleSubmit={handleSubmit} />
           </Box>
-          <AuthHeader linkTo="/login" asideText="Already a member?" linkText="Login" />
+          <AuthFooter linkTo="/login" asideText="Already a member?" linkText="Login" />
         </Box>
       </Grid>
     </Grid>

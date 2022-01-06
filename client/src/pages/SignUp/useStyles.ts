@@ -7,6 +7,9 @@ const useStyles = makeStyles(() => ({
     '& .MuiInput-underline:before': {
       borderBottom: '1.2px solid rgba(0, 0, 0, 0.2)',
     },
+    '& .MuiTypography-root': {
+      fontWeight: 700,
+    },
   },
   authWrapper: {
     display: 'flex',

@@ -14,7 +14,7 @@ const AuthFooter = ({ linkTo, asideText, linkText }: Props): JSX.Element => {
   const classes = useStyles();
 
   return (
-    <Box p={1} display="flex" justifyContent="center" className={classes.authHeader}>
+    <Box p={1} display="flex" justifyContent="center" className={classes.authFooter}>
       <Typography className={classes.accAside}>{asideText}&nbsp;</Typography>
       <Link component={LinkComponent} to={linkTo} color="primary" className={classes.accLink}>
         {linkText}

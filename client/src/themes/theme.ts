@@ -24,13 +24,6 @@ export const theme = createTheme({
         },
       },
     },
-    MuiTypography: {
-      styleOverrides: {
-        root: {
-          fontWeight: 'bold',
-        },
-      },
-    },
     MuiInput: {
       styleOverrides: {
         underline: {
@@ -39,6 +32,13 @@ export const theme = createTheme({
             height: '100%',
             borderRadius: '.2rem',
           },
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          textTransform: 'uppercase',
         },
       },
     },

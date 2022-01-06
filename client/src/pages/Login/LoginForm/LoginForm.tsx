@@ -48,7 +48,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
           <TextField
             id="email"
-            label={<Typography className={classes.label}>EMAIL ADDRESS</Typography>}
+            label={<Typography className={classes.label}>Email Address</Typography>}
             fullWidth
             margin="normal"
             InputLabelProps={{
@@ -66,7 +66,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
           />
           <TextField
             id="password"
-            label={<Typography className={classes.label}>PASSWORD</Typography>}
+            label={<Typography className={classes.label}>Password</Typography>}
             fullWidth
             margin="normal"
             InputLabelProps={{
