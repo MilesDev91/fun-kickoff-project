@@ -1,60 +1,59 @@
 const mongoose = require("mongoose")
 
+const timeRangeSchema = new mongoose.Schema({
+  startTime: Date,
+  endTime: Date,
+  required: function () {
+    return this.startTime.getTime() < this.endTime.getTime()
+  }
+})
+
 const profileSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: true
+    required: true,
+    max: 30
   },
   lastName: {
     type: String,
-    required: true
-  },
-  // To allow similar names
-  id: {
-    type: Number,
-    required: true
+    required: true,
+    max: 30
   },
   availability: {
+    // Unavailable and extra availability dates are for dates outside the normal weekly availability set by the user. This gives them more control over their schedule.
     unavailableDates: [Date],
     extraAvailability: [Date],
     weeklyAvailability: {
-      // These will be strings of date time ranges
-      monday: [String],
-      tuesday: [String],
-      wednesday: [String],
-      thursday: [String],
-      friday: [String],
-      saturday: [String],
-      sunday: [String]
+      // An array of start and end times (look at schema for more details)
+      monday: [timeRangeSchema],
+      tuesday: [timeRangeSchema],
+      wednesday: [timeRangeSchema],
+      thursday: [timeRangeSchema],
+      friday: [timeRangeSchema],
+      saturday: [timeRangeSchema],
+      sunday: [timeRangeSchema]
     }
   },
-  description: String,
+  description: {
+    type: String,
+    max: 120
+  },
   sitter: {
-    isSitting: { type: boolean, required: true },
-    hourlyRate: Number,
-    Rating: Number
+    isSitting: { type: boolean, required: true, default: false },
+    hourlyRate: {
+      type: Number,
+      max: 1000
+    },
+    overallRating: {
+      type: Number,
+      max: 5
+    }
   },
-  requests: [{
-    // Decides whether the request is for this user's services or sent from this user to request services
-    isSitter: { type: Boolean, required: true },
-    startDate: Date,
-    endDate: Date
-  }],
-  booking: {
-    appointments: [{
-      date: { type: Date, required: true },
-      owner: { type: String, required: true },
-      pet: {
-        breed: { type: String, required: true },
-        name: { type: String, required: true }
-      }
-    }]
-  },
-  favoriteUsers: [String],
+  favoriteUsers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Profile' }],
   pets: [{
-    breed: { type: String, required: true },
-    name: { type: String, required: true }
+    breed: { type: String, required: true, max: 30 },
+    name: { type: String, required: true, max: 30 }
   }]
 })
 
-module.exports = Profile = mongoose.model("profile", profileSchema)
+module.exports = Profile = mongoose.model("Profile", profileSchema)
