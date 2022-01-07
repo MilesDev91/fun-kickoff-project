@@ -48,15 +48,13 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
           <TextField
             id="email"
-            label={<Typography className={classes.label}>E-mail address</Typography>}
+            label={<Typography className={classes.label}>Email Address</Typography>}
             fullWidth
             margin="normal"
             InputLabelProps={{
               shrink: true,
             }}
-            InputProps={{
-              classes: { input: classes.inputs },
-            }}
+            classes={{ root: classes.textField }}
             name="email"
             autoComplete="email"
             autoFocus
@@ -64,6 +62,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             error={touched.email && Boolean(errors.email)}
             value={values.email}
             onChange={handleChange}
+            variant="standard"
           />
           <TextField
             id="password"
@@ -74,22 +73,22 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
               shrink: true,
             }}
             InputProps={{
-              classes: { input: classes.inputs },
               endAdornment: <Typography className={classes.forgot}>Forgot?</Typography>,
             }}
+            classes={{ root: classes.textField }}
             type="password"
             autoComplete="current-password"
             helperText={touched.password ? errors.password : ''}
             error={touched.password && Boolean(errors.password)}
             value={values.password}
             onChange={handleChange}
+            variant="standard"
           />
           <Box textAlign="center" marginTop={5}>
             <Button type="submit" size="large" variant="contained" color="primary" className={classes.submit}>
-              {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Login'}
+              {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'LOGIN'}
             </Button>
           </Box>
-          <Box height={95} />
         </form>
       )}
     </Formik>

@@ -6,7 +6,7 @@ import { FormikHelpers } from 'formik';
 import useStyles from './useStyles';
 import login from '../../helpers/APICalls/login';
 import LoginForm from './LoginForm/LoginForm';
-import AuthHeader from '../../components/AuthHeader/AuthHeader';
+import AuthFooter from '../../components/AuthFooter/AuthFooter';
 import { useAuth } from '../../context/useAuthContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 
@@ -38,14 +38,7 @@ export default function Login(): JSX.Element {
   return (
     <Grid container component="main" className={classes.root}>
       <Grid item xs={12} sm={8} md={7} elevation={6} component={Paper} square>
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          alignItems="flex-start"
-          flexDirection="column"
-          className={classes.authWrapper}
-        >
-          <AuthHeader linkTo="/signup" asideText="Don't have an account?" btnText="Create account" />
+        <Box display="flex" alignItems="center" flexDirection="column" className={classes.authWrapper}>
           <Box width="100%" maxWidth={450} p={3} alignSelf="center">
             <Grid container>
               <Grid item xs>
@@ -56,7 +49,7 @@ export default function Login(): JSX.Element {
             </Grid>
             <LoginForm handleSubmit={handleSubmit} />
           </Box>
-          <Box p={1} alignSelf="center" />
+          <AuthFooter linkTo="/signup" asideText="Don't have an account?" linkText="Create account" />
         </Box>
       </Grid>
     </Grid>

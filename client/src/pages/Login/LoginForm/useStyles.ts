@@ -7,14 +7,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(1),
   },
   label: {
-    fontSize: 19,
-    color: 'rgb(0,0,0,0.4)',
-    paddingLeft: '5px',
+    fontSize: '1rem',
+    color: 'rgb(0,0,0)',
   },
-  inputs: {
-    marginTop: '.8rem',
-    height: '2rem',
-    padding: '5px',
+  textField: {
+    '& input': {
+      paddingLeft: '.4rem',
+    },
   },
   forgot: {
     paddingRight: 10,
