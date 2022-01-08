@@ -39,7 +39,7 @@ const profileSchema = new mongoose.Schema({
     max: 120
   },
   sitter: {
-    isSitting: { type: boolean, required: true, default: false },
+    isSitting: { type: Boolean, required: true, default: false },
     hourlyRate: {
       type: Number,
       max: 1000
