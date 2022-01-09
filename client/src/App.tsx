@@ -4,6 +4,7 @@ import { theme } from './themes/theme';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/SignUp';
+import ProfileSettings from './pages/ProfileSettings/ProfileSettings';
 import Dashboard from './pages/Dashboard/Dashboard';
 import { AuthProvider } from './context/useAuthContext';
 import { SocketProvider } from './context/useSocketContext';
@@ -22,6 +23,7 @@ function App(): JSX.Element {
               <Switch>
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
+                <Route path="/profile-settings" component={ProfileSettings} />
                 <Route exact path="/dashboard">
                   <Dashboard />
                 </Route>
