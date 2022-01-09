@@ -1,15 +1,36 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/useAuthContext';
-import { Link, AppBar, Toolbar, IconButton, Menu, MenuItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
+import {
+  Button,
+  Link,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  ListItemText,
+  Divider,
+} from '@mui/material';
 import { Link as LinkComponent } from 'react-router-dom';
 import { AccountCircle } from '@mui/icons-material';
 import { Person as ProfileIcon, Logout as LogoutIcon, Settings as SettingsIcon } from '@mui/icons-material';
+import withResizeHandler from '../../hoc/withResizeHandler';
 import useStyles from './useStyles';
 import logo from '../../Images/logo.png';
+import smallLogo from '../../Images/smalllogo.png';
 
 const Navbar: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const { loggedInUser, logout } = useAuth();
+
+  let navLogo = smallLogo;
+
+  if (typeof window !== 'undefined') {
+    if (window.matchMedia('(min-width:600px)').matches) {
+      navLogo = logo;
+    }
+  }
 
   const open = Boolean(anchorEl);
 
@@ -28,11 +49,13 @@ const Navbar: React.FC = () => {
 
   const classes = useStyles();
 
-  // Display based on whether user is logged in or not
+  // Different display based on whether user is logged in or not
   const rightNav = () => {
     if (loggedInUser) {
       return (
-        <>
+        <div className={classes.navButtonGroup}>
+          <Button>My Sitters</Button>
+          <Button>Messages</Button>
           <IconButton
             size="large"
             aria-label="account of current user"
@@ -78,14 +101,22 @@ const Navbar: React.FC = () => {
               <ListItemText>Logout</ListItemText>
             </MenuItem>
           </Menu>
-        </>
+        </div>
       );
     } else {
       return (
-        <div>
+        <div className={classes.navButtonGroup}>
           <Link component={LinkComponent} to="/#">
             Become a sitter
           </Link>
+          <div className={classes.navButtons}>
+            <Button component={LinkComponent} to="/login" variant="outlined">
+              Login
+            </Button>
+            <Button component={LinkComponent} to="/signup" variant="contained">
+              Sign Up
+            </Button>
+          </div>
         </div>
       );
     }
@@ -94,11 +125,12 @@ const Navbar: React.FC = () => {
   return (
     <AppBar classes={{ root: classes.navbar }} position="static">
       <Toolbar>
-        <img src={logo} alt="Loving Sitter Logo" />
+        <img src={navLogo} alt="Loving Sitter Logo" />
         {rightNav()}
       </Toolbar>
     </AppBar>
   );
 };
 
-export { Navbar };
+// withResizeHandler is a parent component that updates on window resize.
+export default withResizeHandler(Navbar);
