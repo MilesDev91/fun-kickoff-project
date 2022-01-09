@@ -14,8 +14,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     '& .MuiToolbar-root': {
       backgroundColor: 'white',
       justifyContent: 'space-between',
+      paddingRight: theme.spacing(3),
+      paddingLeft: theme.spacing(3),
       '@media (min-width: 600px)': {
         minHeight: 80,
+        paddingRight: theme.spacing(6),
+        paddingLeft: theme.spacing(6),
       },
     },
 
@@ -33,6 +37,9 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontSize: 14,
       whiteSpace: 'nowrap',
       color: 'black',
+    },
+    '& .MuiAvatar-root': {
+      marginLeft: theme.spacing(3),
     },
   },
   navButtonGroup: {

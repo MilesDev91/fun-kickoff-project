@@ -5,7 +5,7 @@ import {
   Link,
   AppBar,
   Toolbar,
-  IconButton,
+  Avatar,
   Menu,
   MenuItem,
   ListItemIcon,
@@ -13,12 +13,13 @@ import {
   Divider,
 } from '@mui/material';
 import { Link as LinkComponent } from 'react-router-dom';
-import { AccountCircle } from '@mui/icons-material';
 import { Person as ProfileIcon, Logout as LogoutIcon, Settings as SettingsIcon } from '@mui/icons-material';
 import withResizeHandler from '../../hoc/withResizeHandler';
 import useStyles from './useStyles';
 import logo from '../../Images/logo.png';
 import smallLogo from '../../Images/smalllogo.png';
+// Temporary example image for user avatar
+import avatarImage from '../../Images/68f55f7799df6c8078a874cfe0a61a5e6e9e1687.png';
 
 const Navbar: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -56,16 +57,14 @@ const Navbar: React.FC = () => {
         <div className={classes.navButtonGroup}>
           <Button>My Sitters</Button>
           <Button>Messages</Button>
-          <IconButton
-            size="large"
+          <Avatar
+            src={avatarImage}
+            sizes="large"
             aria-label="account of current user"
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleMenuOpen}
-            color="primary"
-          >
-            <AccountCircle />
-          </IconButton>
+          />
           <Menu
             id="menu-appbar"
             anchorEl={anchorEl}
