@@ -17,13 +17,6 @@ export const theme = createTheme({
   },
   spacing: 6,
   components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#f14140',
-        },
-      },
-    },
     MuiInput: {
       styleOverrides: {
         underline: {
