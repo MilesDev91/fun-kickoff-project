@@ -20,7 +20,7 @@ function App(): JSX.Element {
           <AuthProvider>
             <SocketProvider>
               <CssBaseline />
-              <Navbar></Navbar>
+              <Navbar />
               <Switch>
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
